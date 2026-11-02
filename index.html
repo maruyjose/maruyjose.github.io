@@ -1,0 +1,1503 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maru y Jose · Nos casamos</title>
+<meta name="description" content="Invitación al casamiento de Maru y Jose. Te esperamos el 5 de febrero de 2027 en Viedma, Río Negro.">
+<meta name="theme-color" content="#0F2E3C">
+<!-- que no aparezca en buscadores: entra sólo quien tenga el link -->
+<meta name="robots" content="noindex, nofollow">
+<!-- vista previa al compartir el link (WhatsApp, etc.). La imagen necesita la
+     dirección completa de la página: al publicarla, cambiar USUARIO/REPOSITORIO
+     en las dos líneas que lo llevan -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Maru y Jose · Nos casamos">
+<meta property="og:description" content="Te esperamos el 5 de febrero de 2027 en Viedma, Río Negro.">
+<meta property="og:url" content="https://USUARIO.github.io/REPOSITORIO/">
+<meta property="og:image" content="https://USUARIO.github.io/REPOSITORIO/img/compartir.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Maru y Jose abrazados frente al atardecer en la playa">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<!-- el mar de los costados (sólo en la compu): lo dibuja el script, ver "EL MAR" -->
+<canvas id="mar" aria-hidden="true"></canvas>
+
+<!-- Íconos reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <!-- ola minimalista: redibujo del separador de img/Iconos -->
+  <symbol id="ola" viewBox="40 62 730 160">
+    <path d="M50 200 C70 212 95 214 120 205 C145 196 165 178 190 180 C215 182 230 196 255 194
+             C290 190 318 168 318 140 C318 112 290 98 262 100 C252 101 246 104 246 104
+             C262 84 296 70 330 72 C370 74 400 100 440 130 C480 160 510 182 545 178
+             C580 174 610 156 640 158 C680 160 720 188 760 196"
+          fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+          vector-effect="non-scaling-stroke"/>
+  </symbol>
+  <!-- la misma ola, viva: el trazo ondula sin moverse de lugar (páginas del libro) -->
+  <symbol id="ola-viva" viewBox="40 62 730 160">
+    <path d="M50 200 C70 212 95 214 120 205 C145 196 165 178 190 180 C215 182 230 196 255 194
+             C290 190 318 168 318 140 C318 112 290 98 262 100 C252 101 246 104 246 104
+             C262 84 296 70 330 72 C370 74 400 100 440 130 C480 160 510 182 545 178
+             C580 174 610 156 640 158 C680 160 720 188 760 196"
+          fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+          vector-effect="non-scaling-stroke">
+      <animate attributeName="d" dur="5.4s" repeatCount="indefinite" values="
+        M50 211.3 C70 214.7 95 204.3 120 192.6 C145 193.9 165 181.8 190 181.8 C215 182 230 196 255 194 C290 190 318 168 318 140 C318 112 290 98 262 100 C252 101 246 104 246 104 C262 84 296 70 330 72 C370 75.4 400 89.5 440 124.7 C480 172.4 510 189.6 545 168.3 C580 164.3 610 161.3 640 170.9 C680 157.3 720 175.6 760 201.3;
+        M50 211.3 C70 224.4 95 216.7 120 195.3 C145 185.5 165 173.6 190 178.1 C215 178.5 230 192.5 255 190.5 C290 186.5 318 164.5 318 136.5 C318 108.5 290 94.5 262 96.5 C252 97.5 246 100.5 246 100.5 C262 80.5 296 66.5 330 68.5 C370 78.4 400 99.8 440 117.1 C480 162.7 510 194.9 545 180.7 C580 161.6 610 148.4 640 165.6 C680 169.7 720 178.3 760 188.4;
+        M50 200 C70 221.7 95 226.4 120 207.7 C145 187.7 165 169.8 190 176.3 C215 178.5 230 192.5 255 190.5 C290 186.5 318 164.5 318 136.5 C318 108.5 290 94.5 262 96.5 C252 97.5 246 100.5 246 100.5 C262 80.5 296 66.5 330 68.5 C370 77.1 400 110.2 440 122.4 C480 150.3 510 187.3 545 190.4 C580 171.3 610 143.1 640 152.7 C680 172.4 720 190.7 760 183.1;
+        M50 188.7 C70 209.3 95 223.7 120 217.4 C145 198.1 165 174.2 190 178.2 C215 182 230 196 255 194 C290 190 318 168 318 140 C318 112 290 98 262 100 C252 101 246 104 246 104 C262 84 296 70 330 72 C370 72.6 400 110.5 440 135.3 C480 147.6 510 174.4 545 187.7 C580 183.7 610 150.7 640 145.1 C680 162.7 720 200.4 760 190.7;
+        M50 188.7 C70 199.6 95 211.3 120 214.7 C145 206.5 165 182.4 190 181.9 C215 185.5 230 199.5 255 197.5 C290 193.5 318 171.5 318 143.5 C318 115.5 290 101.5 262 103.5 C252 104.5 246 107.5 246 107.5 C262 87.5 296 73.5 330 75.5 C370 69.6 400 100.2 440 142.9 C480 157.3 510 169.1 545 175.3 C580 186.4 610 163.6 640 150.4 C680 150.3 720 197.7 760 203.6;
+        M50 200 C70 202.3 95 201.6 120 202.3 C145 204.3 165 186.2 190 183.7 C215 185.5 230 199.5 255 197.5 C290 193.5 318 171.5 318 143.5 C318 115.5 290 101.5 262 103.5 C252 104.5 246 107.5 246 107.5 C262 87.5 296 73.5 330 75.5 C370 70.9 400 89.8 440 137.6 C480 169.7 510 176.7 545 165.6 C580 176.7 610 168.9 640 163.3 C680 147.6 720 185.3 760 208.9;
+        M50 211.3 C70 214.7 95 204.3 120 192.6 C145 193.9 165 181.8 190 181.8 C215 182 230 196 255 194 C290 190 318 168 318 140 C318 112 290 98 262 100 C252 101 246 104 246 104 C262 84 296 70 330 72 C370 75.4 400 89.5 440 124.7 C480 172.4 510 189.6 545 168.3 C580 164.3 610 161.3 640 170.9 C680 157.3 720 175.6 760 201.3"/>
+    </path>
+  </symbol>
+  <!-- orilla: el agua que va y viene sobre el borde de arena de las tapas del libro.
+       Tapa con el lomo arriba y el canto abajo; los trazos los genera el script -->
+  <symbol id="orilla" viewBox="0 0 300 200" preserveAspectRatio="none">
+    <path fill="#6FBFD3" fill-opacity=".88"/>
+    <path fill="none" stroke="#FFFFFF" stroke-opacity=".4" stroke-width=".8" vector-effect="non-scaling-stroke"/>
+    <path fill="none" stroke="#FFFFFF" stroke-opacity=".92" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+  </symbol>
+  <symbol id="pin" viewBox="0 0 24 24">
+    <path d="M12 21.5s-6.6-6.1-6.6-11.2a6.6 6.6 0 0 1 13.2 0c0 5.1-6.6 11.2-6.6 11.2z"
+          fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+    <circle cx="12" cy="10.2" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+  </symbol>
+  <symbol id="calendario" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M8 3v4M16 3v4M3 10h18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  </symbol>
+  <symbol id="pececillo" viewBox="0 0 46 26">
+    <path d="M4 13c6-8 20-8 27 0-7 8-21 8-27 0z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+    <path d="M31 13l9-6v12z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+    <path d="M18 6.4c1.8 2 1.8 4 .8 5.6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    <circle cx="11" cy="11" r="1.6" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<nav class="nav" id="nav" aria-label="Secciones de la invitación">
+  <a href="#historia">Nuestra historia</a>
+  <a href="#galeria">Galería</a>
+  <a href="#vestimenta">Vestimenta</a>
+  <a href="#regalos">Regalos</a>
+  <a href="#fechas">Cuándo y dónde</a>
+</nav>
+
+<div class="pecera" id="pecera" aria-hidden="true"></div>
+
+<main class="telefono" id="pieza">
+  <div class="grano" aria-hidden="true"></div>
+
+  <!-- ============ 1 · INICIO ============ -->
+  <header class="portada" id="inicio">
+    <!-- srcset: en la compu la foto ocupa el ancho de la página y usa una copia más grande;
+         en el celular "330px" hace que siempre elija la de 1320 -->
+    <img class="funde" src="img/Inicio/1.webp" width="1320" height="990" fetchpriority="high" decoding="async"
+         srcset="img/Inicio/1.webp 1320w, img/Inicio/1-1920.webp 1920w, img/Inicio/1-2560.webp 2560w"
+         sizes="(min-width:1024px) 70vw, 330px"
+         alt="Maru y Jose abrazados a contraluz frente al atardecer en la playa">
+    <h1 class="nombres"><span class="n1">Maru</span><span class="n2">y</span><span class="n3">Jose</span></h1>
+    <button class="cancion" id="btnCancion" type="button" aria-pressed="false">
+      <span class="barras" aria-hidden="true"><i></i><i></i><i></i></span>
+      Nuestra canción
+    </button>
+  </header>
+
+  <!-- Nuestra historia -->
+  <section class="historia-cabecera" id="historia">
+    <div class="titulo-olas">
+      <svg class="ola" viewBox="0 0 730 160" aria-hidden="true"><use href="#ola"/></svg>
+      <h2 class="titulo rev" data-palabras>Nuestra Historia</h2>
+      <svg class="ola" viewBox="0 0 730 160" aria-hidden="true"><use href="#ola"/></svg>
+    </div>
+    <p class="subtitulo rev">Todo comenzó con un click. Literal.</p>
+  </section>
+
+  <!-- en la compu, foto y texto van de a pares (ver 16 · ESCRITORIO en el CSS) -->
+  <div class="historia-cuerpo">
+  <img class="foto-plena funde f-historia" src="img/Inicio/2.webp" width="1320" height="990" loading="lazy" decoding="async"
+       srcset="img/Inicio/2.webp 1320w, img/Inicio/2-1920.webp 1920w, img/Inicio/2-2560.webp 2560w" sizes="(min-width:1024px) 70vw, 330px"
+       alt="Maru y Jose mirándose al atardecer en la orilla">
+
+  <section class="historia-texto">
+    <p class="rev">Nos encontramos sin buscarlo en un sitio web. Dos locos por la pesca y por viciar en la compu hicieron match al instante, y desde entonces los mensajes no cesaban hasta las seis de la mañana.</p>
+    <p class="rev">Nos acompañaron noches de insomnio, días llenos de ansiedad, tardes deseando vernos y noches llenas de expectativas. No sabíamos que detrás de esa pantalla venía la persona con la que íbamos a bancarnos todo.</p>
+    <p class="rev">No fue fácil: pasamos tormentas, vimos al sol salir, combatimos mareas bravas y días para tirar la caña. Pero elegimos quedarnos una y otra vez, el uno para el otro.</p>
+  </section>
+
+  <!-- la última oración de la historia vive sobre la foto -->
+  <figure class="lienzo cita-foto">
+    <img class="funde" src="img/Inicio/3.webp" width="1320" height="1979" loading="lazy" decoding="async"
+         srcset="img/Inicio/3.webp 1320w, img/Inicio/3-1920.webp 1920w" sizes="(min-width:1024px) 70vw, 330px"
+         alt="Maru y Jose nariz con nariz al atardecer">
+    <p class="frase-foto sobre-foto rev">Hoy esa conexión que empezó online la firmamos acá, en persona, y para siempre.</p>
+  </figure>
+  </div>
+
+  <!-- Fechas importantes: separador en naranja + foto con hitos y cuenta regresiva -->
+  <section class="fechas-importantes" aria-labelledby="t-importantes">
+  <div class="fi-cabecera">
+    <div class="titulo-olas">
+      <svg class="ola" viewBox="0 0 730 160" aria-hidden="true"><use href="#ola"/></svg>
+      <h2 class="titulo rev" id="t-importantes" data-palabras>Fechas importantes</h2>
+      <svg class="ola" viewBox="0 0 730 160" aria-hidden="true"><use href="#ola"/></svg>
+    </div>
+  </div>
+  <div class="lienzo importantes">
+    <img class="funde" src="img/Inicio/4.webp" width="1320" height="880" loading="lazy" decoding="async"
+         srcset="img/Inicio/4.webp 1320w, img/Inicio/4-1920.webp 1920w, img/Inicio/4-2560.webp 2560w"
+         sizes="(min-width:1024px) 70vw, 330px"
+         alt="Maru y Jose abrazados sobre la restinga mientras rompe una ola">
+    <div class="imp-arriba nube">
+      <ul class="hitos rev">
+        <li><b class="cap">N</b>os pusimos de novios el <b>02/04/2018</b></li>
+        <li><b class="cap">N</b>os comprometimos el <b>14/02/2025</b></li>
+        <li><b class="cap">N</b>os casamos el <b>04/02/2027</b></li>
+      </ul>
+    </div>
+    <div class="imp-abajo">
+      <p class="frase rev">Que juntos cumplamos más sueños que años</p>
+      <div class="reloj rev" id="reloj" aria-label="Cuenta regresiva para el casamiento">
+        <div><b id="cd-d">—</b><span>Días</span></div>
+        <div><b id="cd-h">—</b><span>Horas</span></div>
+        <div><b id="cd-m">—</b><span>Min</span></div>
+        <div><b id="cd-s">—</b><span>Seg</span></div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- ============ 2 · GALERÍA: EL LIBRO ============ -->
+  <!-- Álbum apaisado de tapa dura, encuadernado arriba: se abre hacia arriba y
+       muestra una página arriba y otra abajo, con el lomo en el medio.
+       Cerrado descansa sobre la arena, con el título escrito sobre la foto de la tapa.
+       Se avanza tocando la página de abajo. -->
+  <section class="galeria compacta" id="galeria" aria-label="Libro de fotos: Acompañanos a ver nuestro loco amor">
+    <div class="libro-escena">
+      <div class="libro" id="libro" data-estado="tapa" data-pliego="0" data-arriba="0" role="button" tabindex="0" aria-label="Abrir el libro de fotos">
+        <div class="objeto" id="objeto">
+          <div class="centrador">
+            <!-- tapa de atrás (arena con la orilla del agua), con el canto: se ven las hojas entre las dos tapas -->
+            <div class="tabla" id="tabla" aria-hidden="true"><svg class="orilla" viewBox="0 0 300 200" preserveAspectRatio="none"><use href="#orilla"/></svg><span class="canto"></span></div>
+            <span class="cinta" aria-hidden="true"></span>
+            <span class="lomo" aria-hidden="true"></span>
+
+            <div class="pag pagina p-arriba arriba" id="pagArriba"></div>
+            <div class="pag pagina p-abajo abajo" id="pagAbajo"></div>
+            <span class="pliegue" aria-hidden="true"></span>
+            <span class="sombra-giro s-abajo" aria-hidden="true"></span>
+            <span class="sombra-giro s-arriba" aria-hidden="true"></span>
+
+            <!-- la hoja que se da vuelta -->
+            <div class="hoja" id="hoja" aria-hidden="true">
+              <div class="cara frente pagina p-abajo"><div class="contenido" id="hojaFrente"></div><i class="luz"></i></div>
+              <div class="cara dorso pagina p-arriba"><div class="contenido" id="hojaDorso"></div><i class="luz"></i></div>
+            </div>
+
+            <!-- tapa: la foto ocupa toda la tapa; por dentro lleva pegada la primera página -->
+            <div class="tapa" id="tapa" aria-hidden="true">
+              <div class="cara frente foto-tapa"><img src="img/GaleriaLibro/INICIO.webp" srcset="img/GaleriaLibro/INICIO.webp 1320w, img/GaleriaLibro/INICIO-1920.webp 1920w" sizes="(min-width:1024px) 62vw, 330px" width="1320" height="880" decoding="async" alt=""><p class="frase-foto sobre-foto tapa-titulo">Acompañanos a ver nuestro loco amor.</p><i class="luz"></i></div>
+              <div class="cara dorso interior"><svg class="orilla al-reves" viewBox="0 0 300 200" preserveAspectRatio="none"><use href="#orilla"/></svg><div class="pagina p-arriba pegada" id="pegada"></div><i class="luz"></i></div>
+            </div>
+
+            <!-- contratapa: por dentro la última página, por fuera la foto final -->
+            <div class="contra" id="contra" aria-hidden="true">
+              <div class="cara frente interior"><svg class="orilla" viewBox="0 0 300 200" preserveAspectRatio="none"><use href="#orilla"/></svg><div class="pagina p-abajo pegada" id="contraPagina"></div><i class="luz"></i></div>
+              <div class="cara dorso foto-tapa"><img src="img/GaleriaLibro/FIN.webp" srcset="img/GaleriaLibro/FIN.webp 1320w, img/GaleriaLibro/FIN-1920.webp 1920w" sizes="(min-width:1024px) 62vw, 330px" width="1320" height="927" loading="lazy" decoding="async" alt=""><i class="luz"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="libro-nota" id="libroNota" aria-live="polite"></p>
+    <button class="libro-cerrar" id="libroCerrar" type="button">Cerrar el libro</button>
+  </section>
+
+  <!-- ============ 3 · VESTIMENTA ============ -->
+  <section class="vestimenta" id="vestimenta">
+    <!-- el título va escrito sobre el acantilado de la foto -->
+    <figure class="lienzo foto-titulo">
+      <img class="foto-plena funde f-vestimenta" src="img/Vestimenta/Vestimenta.webp" width="1320" height="1981" loading="lazy" decoding="async"
+           srcset="img/Vestimenta/Vestimenta.webp 1320w, img/Vestimenta/Vestimenta-1754.webp 1754w" sizes="(min-width:1024px) 70vw, 330px"
+           alt="Maru y Jose recostados en la arena con anteojos de sol">
+      <h2 class="frase-foto sobre-foto rev" data-palabras>Formal. Pero con los pies sobre la arena</h2>
+    </figure>
+    <p class="texto rev">Son libres de escoger el color que deseen para su atuendo. Solo les pedimos amablemente evitar el blanco, el albaricoque y el azul neblina.</p>
+    <ul class="evitar rev" aria-label="Colores a evitar">
+      <li><span style="--c:#FFFFFF"></span><small>Blanco</small></li>
+      <li><span style="--c:#E9BA97"></span><small>Albaricoque</small></li>
+      <li><span style="--c:#5E7F97"></span><small>Azul neblina</small></li>
+    </ul>
+  </section>
+
+  <!-- ============ 4 · ASISTENCIA ============ -->
+  <section class="asistencia" id="asistencia">
+    <img class="funde" src="img/Asistencia/Asistencia.webp" width="1320" height="1980" loading="lazy" decoding="async"
+         alt="Jose abraza a Maru por detrás frente al mar">
+    <div class="confirmar">
+      <h2 class="titulo rev"><span class="sr">¿</span><span class="inv" aria-hidden="true">?</span>Contamos con vos?</h2>
+      <p class="sub rev">Nos encantaría saber si vas a estar. Escribinos por WhatsApp y listo.</p>
+      <a class="btn" id="btnWhats" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.05L2 22l5.1-1.33A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.03.79.81-2.95-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.22-.09-.39-.13-.55.12s-.63.8-.77.96-.28.19-.53.06a6.7 6.7 0 0 1-3.35-2.93c-.25-.43.25-.4.72-1.33a.45.45 0 0 0 0-.43c-.06-.12-.55-1.33-.76-1.82s-.4-.42-.55-.43h-.47a.9.9 0 0 0-.65.3 2.73 2.73 0 0 0-.85 2.03 4.74 4.74 0 0 0 1 2.51 10.85 10.85 0 0 0 4.15 3.67c1.54.6 2.15.65 2.92.55.47-.07 1.46-.6 1.66-1.18s.21-1.07.15-1.18-.22-.18-.47-.3z"/></svg>
+        Confirmar por WhatsApp
+      </a>
+      <p class="limite" id="limite">Confirmá antes del 13 de enero de 2027</p>
+    </div>
+  </section>
+
+  <!-- ============ 5 · REGALOS ============ -->
+  <section class="regalos" id="regalos">
+    <!-- el título aparece sobre la barranca como una nube, igual que la frase del cielo del final -->
+    <figure class="lienzo foto-titulo regalo-nube">
+      <img class="foto-plena funde f-regalo" src="img/Regalos/regalo.webp" width="1320" height="880" loading="lazy" decoding="async"
+           srcset="img/Regalos/regalo.webp 1320w, img/Regalos/regalo-1920.webp 1920w, img/Regalos/regalo-2560.webp 2560w"
+           sizes="(min-width:1024px) 70vw, 330px"
+           alt="Maru y Jose sentados en la arena al pie de la barranca">
+      <h2 class="frase-foto nubes rev" data-palabras>El mejor regalo que nos das es tu presencia.</h2>
+    </figure>
+    <p class="texto rev">A nuestro viaje juntos le quedan muchas millas por recorrer… ¿Nos ayudás a lograrlo? Acá te dejamos por dónde.</p>
+    <div class="alias rev">
+      <div>
+        <p class="rotulo">Alias · Mercado Pago</p>
+        <code id="alias">viaje.juntos.boda.mj</code>
+      </div>
+      <button id="btnCopiar" type="button">Copiar</button>
+    </div>
+  </section>
+
+  <!-- ============ 6 · FECHAS: CUÁNDO Y DÓNDE ============ -->
+  <section class="fechas" id="fechas">
+    <div class="panel">
+      <p class="rotulo">Cuándo y dónde</p>
+
+      <article class="momento" data-lugar="civil">
+        <p class="hora">Jue<b>04</b>feb</p>
+        <div>
+          <h3>El civil</h3>
+          <p class="lugar">11:00 h · Ceremonia civil<br>Álvaro Barros 524, Viedma, Río Negro</p>
+          <a class="como-llegar" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+        <button class="mapa-btn" type="button" aria-expanded="false" aria-label="Ver el civil en el mapa"><svg aria-hidden="true"><use href="#pin"/></svg></button>
+        <div class="mapa">
+          <div class="mapa-fondo"><p>Ceremonia civil<br>Álvaro Barros 524, Viedma</p></div>
+          <iframe title="Mapa del civil" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a class="mapa-abrir" target="_blank" rel="noopener">Abrir en Maps</a>
+          <button class="mapa-cerrar" type="button" aria-label="Cerrar el mapa">×</button>
+        </div>
+      </article>
+
+      <article class="momento" data-lugar="ceremonia">
+        <p class="hora">Vie<b>05</b>feb</p>
+        <div>
+          <h3>La ceremonia</h3>
+          <p class="lugar">21:00 h · Catedral Nuestra Señora de la Merced<br>Irigoyen 27, Viedma, Río Negro</p>
+          <a class="como-llegar" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+        <button class="mapa-btn" type="button" aria-expanded="false" aria-label="Ver la ceremonia en el mapa"><svg aria-hidden="true"><use href="#pin"/></svg></button>
+        <div class="mapa">
+          <div class="mapa-fondo"><p>Catedral Nuestra Señora de la Merced<br>Irigoyen 27, Viedma</p></div>
+          <iframe title="Mapa de la Catedral Nuestra Señora de la Merced" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a class="mapa-abrir" target="_blank" rel="noopener">Abrir en Maps</a>
+          <button class="mapa-cerrar" type="button" aria-label="Cerrar el mapa">×</button>
+        </div>
+      </article>
+
+      <article class="momento" data-lugar="fiesta">
+        <p class="hora">Vie<b>05</b>feb</p>
+        <div>
+          <h3>La fiesta</h3>
+          <p class="lugar">A continuación · Salón Costa Eventos<br>RP1 km 12, Río Negro</p>
+          <a class="como-llegar" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+        <button class="mapa-btn" type="button" aria-expanded="false" aria-label="Ver la fiesta en el mapa"><svg aria-hidden="true"><use href="#pin"/></svg></button>
+        <div class="mapa">
+          <div class="mapa-fondo"><p>Salón Costa Eventos<br>Ruta Provincial 1, km 12,5</p></div>
+          <iframe title="Mapa del Salón Costa Eventos" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a class="mapa-abrir" target="_blank" rel="noopener">Abrir en Maps</a>
+          <button class="mapa-cerrar" type="button" aria-label="Cerrar el mapa">×</button>
+        </div>
+      </article>
+    </div>
+
+    <!-- la foto se funde con el panel oscuro de arriba -->
+    <figure class="foto-agenda">
+      <img class="funde" src="img/Fechas/Fechas.webp" width="1320" height="1632" loading="lazy" decoding="async"
+           srcset="img/Fechas/Fechas.webp 1320w, img/Fechas/Fechas-1920.webp 1920w" sizes="(min-width:1024px) 70vw, 330px"
+           alt="Maru y Jose acostados dentro de un corazón dibujado en la arena">
+      <a class="btn btn-agenda" id="btnAgenda" href="#" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#calendario"/></svg>
+        Agendar la fecha
+      </a>
+    </figure>
+  </section>
+
+  <!-- ============ 7 · ATARDECER EN LA PLAYA ============ -->
+  <section class="atardecer" aria-label="Atardecer en la playa">
+    <div class="collage funde">
+      <figure class="c1"><img src="img/AtardecerPlaya/AtardecerPlaya1.webp" width="1320" height="880" loading="lazy" decoding="async" alt="Maru y Jose de espaldas, tomados de la mano frente al sol"></figure>
+      <figure class="c2"><img src="img/AtardecerPlaya/AtardecerPlaya2.webp" width="1320" height="880" loading="lazy" decoding="async" alt="Maru y Jose caminando de la mano hacia el mar al atardecer"></figure>
+      <div class="derecha">
+        <div class="nota">
+          <p class="rev">En tus ojos veo mi futuro y en tus brazos encuentro mi hogar</p>
+          <img src="img/Iconos/Pescado.webp" width="365" height="285" loading="lazy" alt="">
+        </div>
+        <figure class="c3"><img src="img/AtardecerPlaya/AtardecerPlaya3.webp" width="1238" height="2000" loading="lazy" decoding="async" alt="Maru y Jose abrazados a contraluz"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8 · FINAL ============ -->
+  <section class="final" aria-label="Despedida">
+    <!-- la frase se escribe en el cielo, como nubes -->
+    <figure class="lienzo cielo">
+      <img class="funde" src="img/Final/Final2.webp" width="1320" height="880" loading="lazy" decoding="async"
+           srcset="img/Final/Final2.webp 1320w, img/Final/Final2-1920.webp 1920w, img/Final/Final2-2560.webp 2560w"
+           sizes="(min-width:1024px) 70vw, 330px"
+           alt="Maru y Jose sentados de espaldas mirando el mar">
+      <h2 class="frase-foto nubes rev" data-palabras>Porque el amor se celebra mejor acompañado</h2>
+    </figure>
+    <div class="gracias rev" data-ola>
+      <h2 class="titulo">Gracias por ser parte de nuestra historia<svg class="ola" viewBox="0 0 730 160" aria-hidden="true"><use href="#ola"/></svg></h2>
+    </div>
+    <figure>
+      <img class="foto-plena funde f-manos" src="img/Final/Final1.webp" width="1320" height="880" loading="lazy" decoding="async"
+           srcset="img/Final/Final1.webp 1320w, img/Final/Final1-1920.webp 1920w, img/Final/Final1-2560.webp 2560w"
+           sizes="(min-width:1024px) 70vw, 330px"
+           alt="Las manos de Maru y Jose entrelazadas">
+    </figure>
+  </section>
+
+  <!-- ============ 9 · PIE DE PÁGINA ============ -->
+  <footer class="pie">
+    <div class="pie-escena">
+      <img class="funde" src="img/PieDePagina/PieDePagina.webp" width="1320" height="990" loading="lazy" decoding="async"
+           srcset="img/PieDePagina/PieDePagina.webp 1320w, img/PieDePagina/PieDePagina-1920.webp 1920w"
+           sizes="(min-width:1024px) 70vw, 330px"
+           alt="Maru y Jose acostados en la espuma del mar, vistos desde arriba">
+      <div class="tarjeta">
+        <div class="cardumen" id="cardumen" aria-hidden="true">
+          <span class="pececito" style="top:9%;  left:8%;  --d:64px;  --sx:-1; --dur:15s"><svg viewBox="0 0 46 26"><use href="#pececillo"/></svg></span>
+          <span class="pececito" style="top:31%; left:72%; --d:-80px; --sx:1;  --dur:18s; --delay:-5s"><svg viewBox="0 0 46 26"><use href="#pececillo"/></svg></span>
+          <span class="pececito" style="top:47%; left:12%; --d:86px;  --sx:-1; --dur:14s; --delay:-9s"><svg viewBox="0 0 46 26"><use href="#pececillo"/></svg></span>
+          <span class="pececito" style="top:82%; left:74%; --d:-96px; --sx:1;  --dur:20s; --delay:-3s"><svg viewBox="0 0 46 26"><use href="#pececillo"/></svg></span>
+        </div>
+        <p class="t">Los esperamos</p>
+        <p>Ceremonia · Catedral Nuestra Señora de la Merced<br>Irigoyen 27, Viedma, Río Negro</p>
+        <hr>
+        <p>Fiesta · Salón Costa Eventos<br>RP1 km 12, Río Negro</p>
+        <p class="fecha-pie">5<span>/</span>2<span>/</span>2027</p>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<div class="barra" id="barra">
+  <div class="cuenta">
+    <b id="barraDias">—</b>
+    <span>días para el sí</span>
+  </div>
+  <a class="btn" href="#asistencia">Confirmar</a>
+</div>
+
+<script>
+/* ============================================================
+   CONFIGURACIÓN — todo lo editable vive acá
+   ============================================================ */
+const CONFIG = {
+  // fecha que manda la cuenta regresiva
+  fechaPrincipal: "2027-02-04T11:00:00-03:00",
+
+  rsvp: {
+    limite:   "2027-01-13T23:59:00-03:00",   // fecha límite para confirmar
+    telefono: "5492920595157",               // WhatsApp para confirmar: código de país, sin + ni espacios
+    mensaje:  "¡Hola! Confirmo mi asistencia al casamiento de Maru y Jose 🌊"
+  },
+
+  regalo: { alias: "viaje.juntos.boda.mj" },
+
+  cancion: "media/Hasta mi final - Il Divo (cover violín) Julio Cante.mp3",
+
+  // coordenadas [latitud, longitud] o una dirección escrita; null oculta el mapa de esa fila
+  lugares: {
+    civil:     "Álvaro Barros 524, Viedma, Río Negro, Argentina",   // Registro Civil (Centro de Documentación Rápida)
+    ceremonia: [-40.810313, -62.990938],       // Catedral, Irigoyen 27, Viedma
+    fiesta:    [-40.870328, -62.920506]        // Costa Eventos, RP1 km 12,5
+  },
+
+  agenda: {
+    titulo:  "Casamiento de Maru y Jose",
+    inicio:  "20270206T000000Z",               // 05/02/2027 21:00 (hora argentina)
+    fin:     "20270206T060000Z",
+    lugar:   "Catedral Nuestra Señora de la Merced, Irigoyen 27, Viedma, Río Negro",
+    detalle: "Ceremonia 21:00 h en la Catedral. A continuación, fiesta en el Salón Costa Eventos, RP1 km 12."
+  }
+};
+
+/* Libro de fotos: un pliego = página de arriba + página de abajo.
+   Las fotos ocupan la página entera; pos = qué parte de la foto queda a la vista
+   (la vertical 3_galeria se recorta en horizontal, centrada en la pareja) */
+const PLIEGOS = [
+  { arriba:{ foto:"1_galeria", alt:"Maru y Jose jugando en el agua al pie del acantilado" },
+    abajo: { foto:"2_galeria", alt:"Maru salpica a Jose en la orilla" } },
+  { arriba:{ foto:"3_galeria", pos:"50% 56%", alt:"Jose se cubre de las salpicaduras de Maru" },
+    abajo: { texto:"Ese día nos mojamos mucho" } },
+  { arriba:{ foto:"4_galeria", alt:"Jose levanta a Maru en el agua" },
+    abajo: { texto:"Las risas nunca faltaron" } },
+  { arriba:{ foto:"5_galeria", alt:"Jose lleva a Maru en brazos entre las olas" },
+    abajo: { texto:"Te quiero por tu mirada que mira y siembra futuro" } }
+];
+const RUTA_GALERIA = "img/GaleriaLibro/";
+// la foto de una página del libro en dos tamaños: en la compu el libro es grande y
+// puede elegir la de 1920; en el celular "330px" hace que siempre elija la de 1320
+function fotoLibro(img, foto){
+  const base = RUTA_GALERIA + foto;
+  img.srcset = base + ".webp 1320w, " + base + "-1920.webp 1920w";
+  img.sizes = "(min-width:1024px) 62vw, 330px";
+  img.src = base + ".webp";
+}
+
+
+/* ============================================================ */
+const $ = id => document.getElementById(id);
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const dos = n => String(n).padStart(2, "0");
+
+
+/* ---------- canción ---------- */
+const btnC = $("btnCancion");
+const audio = new Audio();
+audio.preload = "none";
+audio.src = encodeURI(CONFIG.cancion);
+
+function marcarCancion(suena){
+  btnC.classList.toggle("suena", suena);
+  btnC.setAttribute("aria-pressed", suena);
+}
+btnC.addEventListener("click", ()=>{
+  if(audio.paused){
+    audio.play().then(()=>marcarCancion(true)).catch(()=>marcarCancion(false));
+  }else{
+    audio.pause(); marcarCancion(false);
+  }
+});
+audio.addEventListener("ended", ()=>marcarCancion(false));
+document.addEventListener("visibilitychange", ()=>{
+  if(document.hidden && !audio.paused){ audio.pause(); marcarCancion(false); }
+});
+
+
+/* ---------- cuenta regresiva ---------- */
+const objetivo = new Date(CONFIG.fechaPrincipal).getTime();
+function tic(){
+  const falta = objetivo - Date.now();
+  if(falta <= 0){
+    $("reloj").innerHTML = '<div style="grid-column:1/-1"><b>¡Hoy!</b></div>';
+    $("barraDias").textContent = "¡Hoy!";
+    return false;
+  }
+  const s = Math.floor(falta / 1000), d = Math.floor(s / 86400);
+  $("cd-d").textContent = d;
+  $("cd-h").textContent = dos(Math.floor(s % 86400 / 3600));
+  $("cd-m").textContent = dos(Math.floor(s % 3600 / 60));
+  $("cd-s").textContent = dos(s % 60);
+  $("barraDias").textContent = d;
+  return true;
+}
+if(tic()){ const reloj = setInterval(()=>{ if(!tic()) clearInterval(reloj); }, 1000); }
+
+
+/* ---------- confirmación ---------- */
+$("limite").textContent = "Confirmá antes del " +
+  new Date(CONFIG.rsvp.limite).toLocaleDateString("es-AR", { day:"numeric", month:"long", year:"numeric", timeZone:"America/Argentina/Buenos_Aires" });
+$("btnWhats").href = "https://wa.me/" + CONFIG.rsvp.telefono +
+  "?text=" + encodeURIComponent(CONFIG.rsvp.mensaje);
+
+
+/* ---------- alias ---------- */
+$("alias").textContent = CONFIG.regalo.alias;
+$("btnCopiar").addEventListener("click", async e=>{
+  const b = e.currentTarget;
+  try{ await navigator.clipboard.writeText(CONFIG.regalo.alias); b.textContent = "¡Copiado!"; }
+  catch{ b.textContent = "Mantené apretado el alias"; }
+  setTimeout(()=>{ b.textContent = "Copiar"; }, 1900);
+});
+
+
+/* ---------- agendar en Google Calendar ---------- */
+const ag = CONFIG.agenda;
+$("btnAgenda").href = "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+  "&text="     + encodeURIComponent(ag.titulo) +
+  "&dates="    + ag.inicio + "/" + ag.fin +
+  "&location=" + encodeURIComponent(ag.lugar) +
+  "&details="  + encodeURIComponent(ag.detalle);
+
+
+/* ============================================================
+   MAPAS — se despliegan desde el ícono al pasar el mouse,
+   mantener el dedo o tocar; cubren la fila de esa fecha
+   ============================================================ */
+const conMouse = matchMedia("(hover:hover) and (pointer:fine)").matches;
+let mapaAbierto = null;
+
+function cerrarMapa(m){
+  m.classList.remove("mapa-abierto");
+  m.querySelector(".mapa-btn").setAttribute("aria-expanded", "false");
+  if(mapaAbierto === m) mapaAbierto = null;
+}
+
+document.querySelectorAll(".momento[data-lugar]").forEach(m=>{
+  const lugar = CONFIG.lugares[m.dataset.lugar];
+  const btn = m.querySelector(".mapa-btn"), capa = m.querySelector(".mapa");
+  const llegar = m.querySelector(".como-llegar");
+  if(!lugar){ btn.remove(); capa.remove(); llegar.remove(); return; }
+
+  // coordenadas o dirección escrita: Google Maps acepta las dos
+  const destino = encodeURIComponent(Array.isArray(lugar) ? lugar.join(",") : lugar);
+  llegar.href = `https://www.google.com/maps/dir/?api=1&destination=${destino}`;
+  capa.querySelector(".mapa-abrir").href = `https://www.google.com/maps/search/?api=1&query=${destino}`;
+  const iframe = capa.querySelector("iframe");
+
+  function abrir(){
+    if(mapaAbierto && mapaAbierto !== m) cerrarMapa(mapaAbierto);
+    if(!iframe.getAttribute("src")) iframe.src = `https://maps.google.com/maps?q=${destino}&z=16&hl=es&output=embed`;
+    m.classList.add("mapa-abierto");
+    btn.setAttribute("aria-expanded", "true");
+    mapaAbierto = m;
+  }
+
+  // mouse: se abre al posarse sobre el ícono y se cierra al salir de la fila
+  if(conMouse){
+    let t;
+    btn.addEventListener("mouseenter", ()=>{ clearTimeout(t); t = setTimeout(abrir, 130); });
+    btn.addEventListener("mouseleave", ()=>{ if(!m.classList.contains("mapa-abierto")) clearTimeout(t); });
+    m.addEventListener("mouseenter", ()=>{ if(m.classList.contains("mapa-abierto")) clearTimeout(t); });
+    m.addEventListener("mouseleave", ()=>{ clearTimeout(t); t = setTimeout(()=>cerrarMapa(m), 260); });
+  }
+
+  // dedo: mantener apretado abre; un toque alterna
+  let presion, porPresion = false;
+  btn.addEventListener("pointerdown", e=>{
+    if(e.pointerType === "mouse") return;
+    porPresion = false;
+    presion = setTimeout(()=>{ porPresion = true; abrir(); }, 380);
+  });
+  ["pointerup","pointercancel","pointerleave"].forEach(ev=>btn.addEventListener(ev, ()=>clearTimeout(presion)));
+  btn.addEventListener("contextmenu", e=>e.preventDefault());
+  btn.addEventListener("click", ()=>{
+    if(porPresion){ porPresion = false; return; }
+    m.classList.contains("mapa-abierto") ? cerrarMapa(m) : abrir();
+  });
+
+  capa.querySelector(".mapa-cerrar").addEventListener("click", e=>{ e.stopPropagation(); cerrarMapa(m); btn.focus(); });
+});
+
+document.addEventListener("click", e=>{
+  if(mapaAbierto && !mapaAbierto.contains(e.target)) cerrarMapa(mapaAbierto);
+});
+document.addEventListener("keydown", e=>{
+  if(e.key === "Escape" && mapaAbierto) cerrarMapa(mapaAbierto);
+});
+
+
+/* ============================================================
+   ORILLA — el borde de las tapas del libro es arena con el agua
+   que va y viene: una franja de agua y una línea de espuma que
+   ondula y avanza/retrocede. Se dibuja una sola vez (#orilla),
+   cada tapa la reusa y SMIL la anima sin costo de script.
+   ============================================================ */
+(function orilla(){
+  const sim = document.getElementById("orilla");
+  if(!sim) return;
+  const [agua, espuma2, espuma] = sim.querySelectorAll("path");
+  const W = 300, H = 200, R = 6;              // unidades del símbolo (tapa de 3:2, lomo arriba)
+  const f = n=>Math.round(n * 10) / 10;
+
+  // puntos de un camino en U a "a" unidades del borde, desplazados por una ola
+  function enU(a, ola){
+    const r = Math.max(R - a, 1.5), pts = [];
+    const lado = H - a - r, fondo = W - 2 * (a + r), arco = Math.PI * r / 2;
+    const L = 2 * lado + 2 * arco + fondo, N = 240;   // siempre N puntos: SMIL interpola punto a punto
+    for(let i = 0; i < N; i++){
+      const s = L * i / (N - 1);
+      let x, y, nx, ny, t = s;
+      if(t <= lado){ x = a; y = t; nx = -1; ny = 0; }
+      else if((t -= lado) <= arco){ const th = Math.PI - t / r; x = a + r + r * Math.cos(th); y = H - a - r + r * Math.sin(th); nx = Math.cos(th); ny = Math.sin(th); }
+      else if((t -= arco) <= fondo){ x = a + r + t; y = H - a; nx = 0; ny = 1; }
+      else if((t -= fondo) <= arco){ const th = Math.PI / 2 - t / r; x = W - a - r + r * Math.cos(th); y = H - a - r + r * Math.sin(th); nx = Math.cos(th); ny = Math.sin(th); }
+      else { t -= arco; x = W - a; y = H - a - r - t; nx = 1; ny = 0; }
+      const fin = Math.min(1, s / 18, (L - s) / 18);   // junto al lomo el agua se calma
+      const d = ola(s) * Math.max(fin, 0);
+      pts.push([x + nx * d, y + ny * d]);
+    }
+    return pts;
+  }
+  const linea = pts=>"M" + pts.map(p=>f(p[0]) + " " + f(p[1])).join("L");
+  function cuadro(fase){
+    const a = 3.2 + .7 * Math.sin(fase);         // el agua sube y baja por la arena
+    const p1 = enU(a, s=>1.3 * Math.sin(2 * Math.PI * s / 27 - fase) + .6 * Math.sin(2 * Math.PI * s / 11 + 1.6 * fase + 1));
+    const p2 = enU(a + 2.9, s=>.9 * Math.sin(2 * Math.PI * s / 34 - fase + 2) + .4 * Math.sin(2 * Math.PI * s / 13 + 1.3 * fase));
+    return {
+      agua: "M0 0L0 " + H + "L" + W + " " + H + "L" + W + " 0L" + linea(p1.slice().reverse()).slice(1) + "Z",
+      espuma: linea(p1),
+      espuma2: linea(p2)
+    };
+  }
+  const K = 8, fases = [];
+  for(let k = 0; k < K; k++) fases.push(cuadro(2 * Math.PI * k / K));
+  const quieto = fases[0];
+  agua.setAttribute("d", quieto.agua); espuma.setAttribute("d", quieto.espuma); espuma2.setAttribute("d", quieto.espuma2);
+  if(reduce) return;                            // con movimiento reducido el agua queda quieta
+  [["agua", agua], ["espuma", espuma], ["espuma2", espuma2]].forEach(([clave, el])=>{
+    const an = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+    an.setAttribute("attributeName", "d");
+    an.setAttribute("dur", "8s");
+    an.setAttribute("repeatCount", "indefinite");
+    an.setAttribute("values", fases.map(c=>c[clave]).concat(fases[0][clave]).join(";"));
+    el.appendChild(an);
+  });
+})();
+
+
+/* ============================================================
+   EL LIBRO DE FOTOS
+   tapa → pliegos (clic en la página de abajo) → contratapa → tapa
+   ============================================================ */
+const libro = $("libro"), galeria = $("galeria"), objeto = $("objeto");
+const tapa = $("tapa"), contra = $("contra"), hoja = $("hoja"), tabla = $("tabla");
+const pagArriba = $("pagArriba"), pagAbajo = $("pagAbajo"), pegada = $("pegada"), contraPagina = $("contraPagina");
+const hojaFrente = $("hojaFrente"), hojaDorso = $("hojaDorso");
+const nota = $("libroNota");
+// [texto de ayuda debajo del libro, etiqueta para lectores de pantalla]
+// ninguno lleva ayuda visible: la invitación está en la tapa, abierto queda "Cerrar el libro"
+// y la contratapa se entiende sola (las etiquetas quedan para los lectores de pantalla)
+const NOTAS = {
+  tapa:       ["",                                     "Abrir el libro de fotos"],
+  abierto:    ["",                                     "Pasar página"],
+  contratapa: ["",                                     "Volver a la tapa del libro"]
+};
+const T_GIRO = 1000;            // lo que tarda una hoja o una tapa en girar (= --t-giro en el CSS)
+let pliego = 0, ocupado = false;
+
+function olaSVG(){
+  const ns = "http://www.w3.org/2000/svg";
+  const s = document.createElementNS(ns, "svg"); s.setAttribute("class", "ola"); s.setAttribute("viewBox", "0 0 730 160"); s.setAttribute("aria-hidden", "true");
+  const u = document.createElementNS(ns, "use"); u.setAttribute("href", "#ola-viva"); s.appendChild(u);
+  return s;
+}
+function armarPagina(spec, numero){
+  const frag = document.createDocumentFragment();
+  const dentro = document.createElement("div");
+  dentro.className = "pag-in";
+  if(spec.foto){
+    // la foto ocupa toda la página, sin marco
+    dentro.classList.add("llena");
+    const img = new Image();
+    fotoLibro(img, spec.foto);
+    img.alt = spec.alt || "";
+    img.decoding = "async";
+    if(spec.pos) img.style.objectPosition = spec.pos;
+    dentro.appendChild(img);
+    frag.append(dentro);
+    return frag;
+  }
+  const t = document.createElement("div");
+  t.className = "pag-texto";
+  const p = document.createElement("p");
+  p.textContent = spec.texto;
+  t.append(p, olaSVG());
+  dentro.appendChild(t);
+  // el número de página sólo en las páginas de texto
+  const folio = document.createElement("span");
+  folio.className = "folio";
+  folio.textContent = numero;
+  frag.append(dentro, folio);
+  return frag;
+}
+const llenar = (el, spec, n)=>el.replaceChildren(armarPagina(spec, n));
+const deArriba = i=>[PLIEGOS[i].arriba, i * 2 + 1];
+const deAbajo  = i=>[PLIEGOS[i].abajo,  i * 2 + 2];
+
+function ponerEstado(e){
+  libro.dataset.estado = e;
+  document.body.classList.toggle("libro-abierto", e === "abierto");   // en la compu la barra se corre mientras se mira el libro
+  galeria.classList.toggle("abierto", e === "abierto");
+  nota.textContent = NOTAS[e][0];
+  libro.setAttribute("aria-label", NOTAS[e][1]);
+}
+// una pieza (tapa, hoja o contratapa) gira sobre el lomo; mientras tanto se
+// oscurece con la luz y proyecta su sombra sobre las páginas
+function girar(pieza, clase, poner, reves, alFinal){
+  ocupado = true;
+  libro.classList.add("pasando"); libro.classList.toggle("reves", reves);
+  pieza.classList.add("moviendo"); pieza.classList.toggle("reves", reves);
+  pieza.classList.toggle(clase, poner);
+  setTimeout(()=>{
+    libro.classList.remove("pasando", "reves");
+    pieza.classList.remove("moviendo", "reves");
+    ocupado = false;
+    if(alFinal) alFinal();
+  }, T_GIRO + 40);
+}
+const dosCuadros = fn=>requestAnimationFrame(()=>requestAnimationFrame(fn));
+// espera a que las fotos estén decodificadas (como mucho "max" ms): así nada gira en blanco
+function decodificadas(el, max){
+  const ps = [...el.querySelectorAll("img")].map(i=>i.decode ? i.decode().catch(()=>{}) : 0);
+  return Promise.race([Promise.all(ps), new Promise(r=>setTimeout(r, max))]);
+}
+// deja armada (y decodificada) la hoja del próximo giro, o la contratapa si es el último pliego
+let preparado = -1;
+function prepararGiro(){
+  if(pliego < PLIEGOS.length - 1){
+    llenar(hojaFrente, ...deAbajo(pliego));
+    llenar(hojaDorso, ...deArriba(pliego + 1));
+    decodificadas(hoja, 0);
+  }else{
+    llenar(contraPagina, ...deAbajo(pliego));
+    decodificadas(contra, 0);
+  }
+  preparado = pliego;
+}
+
+const enCompu = matchMedia("(min-width:1024px)");
+// en la compu el libro es grande: si abierto no entra entero en la pantalla,
+// la página baja (o sube) hasta que el libro arranque debajo de la navegación
+function acomodarLibro(){
+  if(!enCompu.matches) return;
+  const r = libro.getBoundingClientRect(), arriba = $("nav").offsetHeight + 12;
+  if(r.top < arriba || r.bottom > innerHeight) scrollTo({ top: scrollY + r.top - arriba, behavior: reduce ? "auto" : "smooth" });
+}
+// en la compu, cerrado el libro no deja arena vacía arriba y abajo (la sección se
+// encoge, ver .galeria.compacta); abierto recupera su lugar. La vista se corrige
+// al instante para que el libro no salte en la pantalla
+function compactar(si){
+  const antes = libro.getBoundingClientRect().top;
+  galeria.classList.toggle("compacta", si);
+  const d = libro.getBoundingClientRect().top - antes;
+  if(d) scrollBy({ top: d, behavior: "instant" });
+}
+// cerrado (por la tapa o por la contratapa), la vista centra el libro en la pantalla
+function centrarLibro(){
+  if(!enCompu.matches) return;
+  const r = libro.getBoundingClientRect(), arriba = $("nav").offsetHeight;
+  const centro = r.top + r.height / 2, objetivo = arriba + (innerHeight - arriba) / 2;
+  if(Math.abs(centro - objetivo) > 40) scrollTo({ top: scrollY + centro - objetivo, behavior: reduce ? "auto" : "smooth" });
+}
+function abrirLibro(){
+  ocupado = true;
+  compactar(false);
+  acomodarLibro();
+  pliego = 0; libro.dataset.pliego = 0; libro.dataset.arriba = 0;
+  llenar(pegada, ...deArriba(0));          // la primera página viene pegada a la tapa
+  llenar(pagArriba, ...deArriba(0));
+  llenar(pagAbajo, ...deAbajo(0));
+  pagAbajo.classList.add("visible");
+  ponerEstado("abierto");
+  girar(tapa, "abierta", true, false, ()=>{ pagArriba.classList.add("visible"); prepararGiro(); });
+}
+function cerrarLibro(){
+  if(ocupado || libro.dataset.estado !== "abierto") return;
+  ocupado = true;
+  llenar(pegada, ...deArriba(pliego));     // las hojas de arriba bajan con la tapa
+  decodificadas(pegada, 250).then(()=>{
+    pagArriba.classList.remove("visible");
+    ponerEstado("tapa");
+    girar(tapa, "abierta", false, true, ()=>{
+      pliego = 0; libro.dataset.pliego = 0; libro.dataset.arriba = 0;
+      llenar(pagAbajo, ...deAbajo(0));
+      compactar(true); centrarLibro();
+    });
+  });
+}
+function pasarPagina(){
+  if(pliego >= PLIEGOS.length - 1){ cerrarPorAtras(); return; }
+  ocupado = true;
+  acomodarLibro();                         // en la compu la vista sube con la hoja
+  const sig = pliego + 1;
+  if(preparado !== pliego) prepararGiro();
+  decodificadas(hoja, 300).then(()=>{
+    hoja.classList.add("lista");             // tapa exactamente la página de abajo
+    llenar(pagAbajo, ...deAbajo(sig));       // debajo ya espera la página siguiente
+    libro.dataset.pliego = sig;              // quedan menos hojas abajo
+    dosCuadros(()=>girar(hoja, "girando", true, false, ()=>{
+      ocupado = true;
+      llenar(pagArriba, ...deArriba(sig));
+      pliego = sig; libro.dataset.arriba = sig;
+      decodificadas(pagArriba, 250).then(()=>{
+        hoja.classList.add("sin-transicion");
+        hoja.classList.remove("girando", "lista");
+        void hoja.offsetWidth;
+        hoja.classList.remove("sin-transicion");
+        prepararGiro();
+        ocupado = false;
+      });
+    }));
+  });
+}
+function cerrarPorAtras(){
+  // la contratapa sube con la última página y cierra el libro por detrás
+  ocupado = true;
+  if(preparado !== pliego) prepararGiro();
+  decodificadas(contra, 300).then(()=>{
+    contra.classList.add("lista");
+    tabla.classList.add("oculta"); pagAbajo.classList.remove("visible");
+    ponerEstado("contratapa");
+    dosCuadros(()=>girar(contra, "cerrada", true, false, ()=>{
+      pagArriba.classList.remove("visible");
+      objeto.classList.add("reposo");        // queda apoyado de nuevo sobre la arena
+      compactar(true); centrarLibro();
+    }));
+  });
+}
+function reiniciar(){
+  pliego = 0; preparado = -1; libro.dataset.pliego = 0; libro.dataset.arriba = 0;
+  contra.classList.remove("lista", "cerrada");
+  tabla.classList.remove("oculta");
+  tapa.classList.remove("abierta");
+  objeto.classList.remove("reposo");
+  pagArriba.classList.remove("visible");
+  llenar(pagAbajo, ...deAbajo(0)); pagAbajo.classList.add("visible");
+  ponerEstado("tapa");
+}
+function darVuelta(){
+  // da vuelta el libro cerrado para volver a la tapa
+  ocupado = true;
+  libro.classList.add("volteando");
+  libro.style.transform = "rotateX(90deg)";
+  setTimeout(()=>{
+    galeria.classList.add("sin-transicion");
+    reiniciar();
+    libro.style.transform = "rotateX(-90deg)";
+    void libro.offsetWidth;
+    galeria.classList.remove("sin-transicion");
+    requestAnimationFrame(()=>{ libro.style.transform = "rotateX(0deg)"; });
+    setTimeout(()=>{ libro.classList.remove("volteando"); libro.style.transform = ""; ocupado = false; }, 380);
+  }, 330);
+}
+// cerrado, la página de abajo ya está en su lugar (se asoma si se levanta la tapa)
+llenar(pagAbajo, ...deAbajo(0)); pagAbajo.classList.add("visible");
+function accionLibro(e){
+  if(ocupado) return;
+  const est = libro.dataset.estado;
+  if(est === "tapa") abrirLibro();
+  else if(est === "contratapa") darVuelta();
+  else if(!e || pagAbajo.contains(e.target)) pasarPagina();
+}
+libro.addEventListener("click", accionLibro);
+libro.addEventListener("keydown", e=>{
+  if(e.key === "Enter" || e.key === " "){ e.preventDefault(); accionLibro(null); }
+});
+$("libroCerrar").addEventListener("click", cerrarLibro);
+
+if("IntersectionObserver" in window){
+  // precarga las fotos del libro cuando la sección se acerca
+  const pre = new IntersectionObserver(es=>{
+    if(!es.some(e=>e.isIntersecting)) return;
+    PLIEGOS.forEach(p=>[p.arriba, p.abajo].forEach(s=>{ if(s.foto){ fotoLibro(new Image(), s.foto); } }));
+    pre.disconnect();
+  }, { rootMargin:"800px 0px" });
+  pre.observe(galeria);
+}
+
+
+/* ============================================================
+   APARICIÓN DE TEXTO — ~0,5 s, palabra por palabra en títulos
+   ============================================================ */
+if(!reduce && "IntersectionObserver" in window){
+  document.documentElement.classList.add("js-anim");
+
+  document.querySelectorAll("[data-palabras]").forEach(nodo=>{
+    if(nodo.children.length) return;
+    const palabras = nodo.textContent.trim().split(/\s+/);
+    const nubes = nodo.classList.contains("nubes");
+    nodo.textContent = "";
+    palabras.forEach((w, i)=>{
+      const s = document.createElement("span");
+      s.className = "pal";
+      s.textContent = w;
+      s.style.transitionDelay = (nubes ? Math.min(i * 150, 1200) : Math.min(i * 38, 300)) + "ms";
+      nodo.appendChild(s);
+      if(i < palabras.length - 1) nodo.appendChild(document.createTextNode(" "));
+    });
+    nodo.classList.add("porpalabras", "rev");
+  });
+
+  const obs = new IntersectionObserver(entradas=>{
+    entradas.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("dentro"); obs.unobserve(e.target); } });
+  }, { rootMargin:"0px 0px -8% 0px", threshold:.12 });
+  document.querySelectorAll(".rev").forEach(n=>obs.observe(n));
+
+  requestAnimationFrame(()=>{
+    document.querySelectorAll(".rev").forEach(n=>{
+      const r = n.getBoundingClientRect();
+      if(r.top < innerHeight && r.bottom > 0) n.classList.add("dentro");
+    });
+  });
+}
+
+
+/* ============================================================
+   OLAS VIVAS — las olas junto a los títulos son vectores que ondulan.
+   Cada tanto crecen, avanzan sobre el título y lo tapan (debajo de la
+   ola hay arena, así que el título desaparece) y después se retiran.
+   Las dos olas de una cabecera rompen hacia el título y se encuentran
+   en el medio; la de "Gracias…" nace al final de la frase.
+   El dibujo es el mismo separador (#ola): se lo muestrea en puntos y
+   se lo deforma cuadro a cuadro.
+   ============================================================ */
+(function olasVivas(){
+  // las olas de las páginas del libro ondulan solas (SMIL); con movimiento reducido, quietas
+  if(reduce){ document.querySelectorAll("#ola-viva animate").forEach(a=>a.remove()); return; }
+  const grupos = [...document.querySelectorAll(".titulo-olas, [data-ola]")];
+  if(!grupos.length || !("IntersectionObserver" in window)) return;
+
+  const NS = "http://www.w3.org/2000/svg";
+  const N = 150;                 // puntos por ola
+  const VB = 137;                // línea de base del dibujo, en unidades del símbolo
+  const T_SUBE = 1350, T_QUIETO = 950, T_BAJA = 1800;
+
+  /* 1 · el separador original, muestreado a lo largo del trazo (unidades del símbolo) */
+  const molde = [];
+  {
+    const s = document.createElementNS(NS, "svg");
+    s.setAttribute("width", "0"); s.setAttribute("height", "0"); s.style.position = "absolute";
+    const p = document.querySelector("#ola path").cloneNode();
+    s.appendChild(p); document.body.appendChild(s);
+    const L = p.getTotalLength();
+    for(let i = 0; i < N; i++){ const q = p.getPointAtLength(L * i / (N - 1)); molde.push([q.x - 40, q.y - 62]); }
+    s.remove();
+  }
+  const cerca = (u, v) => molde.reduce((b, q, i)=>{ const d = (q[0] - u) ** 2 + (q[1] - v) ** 2; return d < b[1] ? [i, d] : b; }, [0, 1e9])[0];
+  const iValle = cerca(215, 132), iPunta = cerca(206, 42), iCresta = cerca(290, 10);
+  // la ondulación recorre las colas; el rulo de la cresta sólo sube y baja
+  const peso = molde.map(([u])=>{ const d = u < 200 ? 200 - u : u > 335 ? u - 335 : 0; return Math.min(d / 70, 1); });
+  const suave = (a, b, x)=>{ const t = Math.min(Math.max((x - a) / (b - a), 0), 1); return t * t * (3 - 2 * t); };
+  const espejo = (pts, W)=>pts.map(([x, y])=>[W - x, y]);
+
+  /* 2 · formas: en reposo (el separador en su lugar) y en marejada.
+     Se calculan para una ola que rompe hacia la izquierda; la de la izquierda se espeja. */
+  const reposo = c=>{ const s = c.w / 730; return molde.map(([u, v])=>[c.x + u * s, c.y + v * s]); };
+  function marejada(c, punta, fin, techo, borde){
+    // c: caja del separador · punta: x adonde llega el labio · fin: x del extremo de atrás
+    // techo: y que tiene que quedar bajo el agua · borde: hasta dónde el agua se mantiene alta
+    const s = c.w / 730, yb = c.y + VB * s;
+    const Hp = yb - techo, H = Hp + 5;
+    const k = H / 127;                              // px por unidad dentro de la cresta
+    const base = punta + 44 * k;                    // base de la cresta (u = 250)
+    const x3 = base - 35 * k, y3 = yb - 5 * k;      // el valle delante de la cresta
+    const x7 = base + 40 * k;                       // lo alto de la cresta
+    const kb = (fin - x7) / 430, d1 = 34 * k;
+    borde = Math.min(borde, fin - 8);
+    return molde.map(([u, v], i)=>{
+      if(i < iValle) return [x3 + (u - 215) * k * .22, y3 + (v - 132) * k * .4];
+      if(i <= iCresta) return [base + (u - 250) * k, yb - (VB - v) * k];
+      const X = x7 + (u - 290) * kb;
+      const h = Hp * (1 - suave(borde, fin, X)) + (H - Hp) * (1 - suave(x7, x7 + d1, X));
+      return [X, yb - h];
+    });
+  }
+
+  /* El corazón: cuando las dos olas se tocan, cada rulo se vuelve una mitad.
+     Curva clásica: x = 16 sen³t · y = 13 cos t − 5 cos 2t − 2 cos 3t − cos 4t
+     (t = 0 es la hendidura de arriba, t = π la punta de abajo, ~29 unidades de alto).
+     La línea sube por el costado, pasa por el lomo, baja a la hendidura y vuelve
+     por el lomo hasta el agua de atrás. */
+  const corX = t=>16 * Math.sin(t) ** 3;
+  const corY = t=>13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
+  const T_LOMO = .92;                               // lo más alto de cada mitad
+  function mitadCorazon(c, cx, fin, techo, borde, alto){
+    const s = c.w / 730, yb = c.y + VB * s;
+    const e = alto / 29;                            // px por unidad de la curva
+    const X = t=>cx + corX(t) * e;
+    const Y = t=>techo + (5 - corY(t)) * e;         // la hendidura queda justo arriba del título
+    const x7 = X(T_LOMO), Hp = yb - techo, H = yb - Y(T_LOMO);
+    const kb = (fin - x7) / 430, d1 = Math.max(10, (fin - x7) * .22);
+    borde = Math.min(borde, fin - 8);
+    return molde.map(([u], i)=>{
+      if(i <= iPunta){ const t = Math.PI * (1 - i / iPunta); return [X(t), Y(t)]; }
+      if(i <= iCresta){ const t = T_LOMO * (i - iPunta) / (iCresta - iPunta); return [X(t), Y(t)]; }
+      const Xb = x7 + (u - 290) * kb;
+      const h = Hp * (1 - suave(borde, fin, Xb)) + (H - Hp) * (1 - suave(x7, x7 + d1, Xb));
+      return [Xb, yb - h];
+    });
+  }
+
+  /* 3 · cada grupo (cabecera con dos olas, o la frase con la ola al final) */
+  const pieza = $("pieza");
+  function crearGrupo(el){
+    const doble = el.classList.contains("titulo-olas");
+    const svg = document.createElementNS(NS, "svg");
+    const id = "ov" + Math.random().toString(36).slice(2, 8);
+    svg.setAttribute("class", "ola-viva"); svg.setAttribute("aria-hidden", "true"); svg.setAttribute("focusable", "false");
+    svg.innerHTML =
+      `<defs>
+        <pattern id="${id}a" patternUnits="userSpaceOnUse" width="256" height="256">
+          <rect width="256" height="256" fill="#EBDDC3"/><image href="img/Iconos/fondo-arena.webp" width="256" height="256"/>
+        </pattern>
+        <clipPath id="${id}i"><rect/></clipPath><clipPath id="${id}d"><rect/></clipPath>
+      </defs>`;
+    const olas = (doble ? ["i", "d"] : ["d"]).map(lado=>{
+      const gr = document.createElementNS(NS, "g");
+      if(doble) gr.setAttribute("clip-path", `url(#${id}${lado})`);
+      const mk = (cl, extra)=>{ const p = document.createElementNS(NS, "path"); p.setAttribute("class", cl); if(extra) p.setAttribute("fill", extra); gr.appendChild(p); return p; };
+      // debajo de la línea sólo hay arena idéntica al fondo: no se ve, pero tapa el título
+      const o = { lado, dir: lado === "i" ? -1 : 1, oculto: true,
+        cuerpo: mk("cuerpo", `url(#${id}a)`), linea: mk("linea"),
+        P: new Float32Array(N * 2) };
+      o.cuerpo.style.display = "none";
+      svg.appendChild(gr);
+      return o;
+    });
+    const gotas = document.createElementNS(NS, "g"); gotas.setAttribute("class", "gotas"); svg.appendChild(gotas);
+    el.appendChild(svg);
+    el.classList.add("ola-activa");
+    const g = { el, svg, doble, olas, gotas, vivas: [],
+      titulo: el.querySelector(".titulo") || el,
+      patron: svg.querySelector("pattern"),
+      clips: [...svg.querySelectorAll("clipPath rect")],
+      lento: doble ? 1 : 1.25, fase: Math.random() * 6, inicio: null, proxima: 0, ultimo: 0,
+      enPantalla: false, listo: false };
+    el._ola = g;
+    return g;
+  }
+
+  function medir(g){
+    const r = g.svg.getBoundingClientRect(), W = r.width, Ht = r.height;
+    if(!W) return;
+    g.svg.setAttribute("viewBox", `0 0 ${W.toFixed(2)} ${Ht.toFixed(2)}`);
+    const tel = pieza.getBoundingClientRect();
+    g.patron.setAttribute("x", (tel.left - r.left).toFixed(2));
+    g.patron.setAttribute("y", (tel.top - r.top).toFixed(2));
+    const rel = b=>({ x: b.left - r.left, y: b.top - r.top, w: b.width, r: b.right - r.left, b: b.bottom - r.top });
+    let T, fondo;
+    g.amp = g.doble ? 2.2 : 3.4;            // cuánto ondula la superficie en la marejada
+    g.onda = g.doble ? 26 : 50;
+    if(g.doble){
+      const seps = g.el.querySelectorAll(":scope > .ola");
+      T = rel(g.titulo.getBoundingClientRect());
+      const cx = T.x + T.w / 2, techo = T.y - 3 - g.amp;
+      const cd = rel(seps[1].getBoundingClientRect());
+      const ci = rel(seps[0].getBoundingClientRect());
+      const ce = { x: W - ci.r, y: ci.y, w: ci.w };          // la izquierda, vista en espejo
+      const d = g.olas[1], i = g.olas[0];
+      const alto = Math.max(T.b - T.y, 20) * 1.42;            // alto del corazón
+      const finD = cd.x + 720 * cd.w / 730, finI = ce.x + 720 * ce.w / 730;
+      d.R = reposo(cd);
+      d.S = marejada(cd, cx, finD, techo, T.r + 6);
+      d.C = mitadCorazon(cd, cx, finD, techo, T.r + 6, alto);
+      i.R = espejo(reposo(ce), W);
+      i.S = espejo(marejada(ce, W - cx, finI, techo, W - T.x + 6), W);
+      i.C = espejo(mitadCorazon(ce, W - cx, finI, techo, W - T.x + 6, alto), W);
+      g.centro = [cx, techo + 7.5 * alto / 29];               // de ahí late el corazón
+      // cada ola se queda en su mitad (se solapan un pelo para que no se vea la costura)
+      g.clips[0].setAttribute("x", -60); g.clips[0].setAttribute("y", -200); g.clips[0].setAttribute("width", cx + 60.7); g.clips[0].setAttribute("height", Ht + 400);
+      g.clips[1].setAttribute("x", cx - .7); g.clips[1].setAttribute("y", -200); g.clips[1].setAttribute("width", W - cx + 60.7); g.clips[1].setAttribute("height", Ht + 400);
+      fondo = Math.max(T.b, d.R[0][1]) + 6;
+    }else{
+      // la frase puede ocupar varias líneas: se mide el texto, no la caja
+      const rango = document.createRange(); rango.selectNodeContents(g.titulo.firstChild);
+      const lineas = [...rango.getClientRects()].map(rel);
+      T = { x: Math.min(...lineas.map(l=>l.x)), y: Math.min(...lineas.map(l=>l.y)),
+            r: Math.max(...lineas.map(l=>l.r)), b: Math.max(...lineas.map(l=>l.b)) };
+      const c = rel(g.titulo.querySelector(".ola").getBoundingClientRect());
+      const o = g.olas[0];
+      o.R = reposo(c);
+      o.S = marejada(c, T.x - 10, W - 10, T.y - 3 - g.amp, T.r + 6, false);
+      fondo = T.b + 6;
+      g.choque = o.S[iPunta];
+    }
+    g.fondo = fondo;
+    dibujar(g, 0, 0);
+  }
+
+  /* 4 · dibujo */
+  const f1 = n=>Math.round(n * 10) / 10;
+  function dibujar(g, k, dt){
+    const A = 1 + g.amp * k, lam = 34 + g.onda * k, bob = .55 * Math.sin(g.fase * .5);
+    const kx = 1 - (1 - k) * (1 - k);       // avanza antes de terminar de crecer
+    const hc = g.doble ? suave(.72, 1, k) : 0;   // al final del avance los rulos se cierran en corazón
+    const lat = g.latido || 0;
+    for(const o of g.olas){
+      if(!o.R) continue;
+      const P = o.P;
+      for(let i = 0; i < N; i++){
+        const R = o.R[i], w = peso[i];
+        let Sx = o.S[i][0], Sy = o.S[i][1];
+        if(hc){ Sx += (o.C[i][0] - Sx) * hc; Sy += (o.C[i][1] - Sy) * hc; }
+        const quieto = i <= iCresta ? 1 - hc : 1;  // el corazón no ondula
+        let x = R[0] + (Sx - R[0]) * kx;
+        let y = R[1] + (Sy - R[1]) * k + (A * w * Math.sin(2 * Math.PI * x / lam + o.dir * g.fase) + (1 - w) * bob) * quieto;
+        if(lat){
+          // el latido agranda el corazón desde su centro; la línea de atrás acompaña de a poco
+          const f = i <= iCresta ? lat : lat * Math.max(0, 1 - (i - iCresta) / 12);
+          x += (x - g.centro[0]) * f; y += (y - g.centro[1]) * f;
+        }
+        P[2 * i] = x; P[2 * i + 1] = y;
+      }
+      let d = "M" + f1(P[0]) + " " + f1(P[1]);
+      for(let i = 1; i < N; i++) d += "L" + f1(P[2 * i]) + " " + f1(P[2 * i + 1]);
+      o.linea.setAttribute("d", d);
+      if(k > .002){
+        // la arena de abajo: el contorno sin el hueco del rulo, cerrado contra el fondo.
+        // Las que se encuentran van derecho del frente al labio: así no queda costura en el medio
+        const desde = g.doble ? 0 : iValle;
+        let c = "M" + f1(P[0]) + " " + f1(P[1]);
+        for(let i = 1; i < N; i++){ if(i > desde && i < iPunta) continue; c += "L" + f1(P[2 * i]) + " " + f1(P[2 * i + 1]); }
+        c += "L" + f1(P[2 * N - 2]) + " " + f1(g.fondo) + "L" + f1(P[0]) + " " + f1(g.fondo) + "Z";
+        o.cuerpo.setAttribute("d", c);
+        if(o.oculto){ o.cuerpo.style.display = ""; o.oculto = false; }
+      }else if(!o.oculto){ o.cuerpo.style.display = "none"; o.oculto = true; }
+    }
+    // gotas de la rompiente (sólo la ola de "Gracias…")
+    for(const p of g.vivas){
+      p.t += dt; p.vy += 340 * dt; p.x += p.vx * dt; p.y += p.vy * dt;
+      p.c.setAttribute("cx", f1(p.x)); p.c.setAttribute("cy", f1(p.y));
+      p.c.style.opacity = Math.max(0, 1 - p.t / p.vida).toFixed(2);
+    }
+    if(g.vivas.length) g.vivas = g.vivas.filter(p=>{ if(p.t < p.vida) return true; p.c.remove(); return false; });
+  }
+  function salpicar(g){
+    const [x, y] = g.choque;
+    for(let i = 0; i < 9; i++){
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("r", (1 + Math.random() * 1.7).toFixed(1));
+      g.gotas.appendChild(c);
+      g.vivas.push({ c, x, y, vx: (Math.random() - .5) * 130, vy: -55 - Math.random() * 115, t: 0, vida: .55 + Math.random() * .4 });
+    }
+  }
+
+  /* 5 · tiempo: ondulan siempre que estén a la vista; la marejada, cada 10–15 s */
+  const sube = t=>t < .5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2;
+  const baja = t=>(1 - Math.cos(Math.PI * t)) / 2;
+  function avance(e){
+    if(e < T_SUBE) return sube(e / T_SUBE);
+    if(e < T_SUBE + T_QUIETO) return 1;
+    if(e < T_SUBE + T_QUIETO + T_BAJA) return 1 - baja((e - T_SUBE - T_QUIETO) / T_BAJA);
+    return -1;
+  }
+  // con el corazón formado, late dos veces ("pum-pum")
+  const pulso = (u, a, b)=>u > a && u < b ? Math.sin(Math.PI * (u - a) / (b - a)) : 0;
+  const latido = u=>pulso(u, .08, .32) + .6 * pulso(u, .38, .6);
+  let corriendo = false, previo = 0;
+  function cuadro(ahora){
+    const dt = Math.min(ahora - previo, 60) / 1000; previo = ahora;
+    let alguno = false;
+    for(const g of G){
+      if(!g.enPantalla) continue;
+      alguno = true;
+      if(g.inicio === null && g.listo && g.proxima && ahora >= g.proxima){
+        medir(g); g.inicio = ahora; g.salpico = false;
+      }
+      let k = 0;
+      g.latido = 0;
+      if(g.inicio !== null){
+        const e = (ahora - g.inicio) / g.lento;
+        k = avance(e);
+        if(k < 0){
+          k = 0; g.inicio = null; g.titulo.classList.remove("mojado");
+          g.proxima = ahora + 10000 + Math.random() * 5000;
+        }else{
+          if(g.doble && e > T_SUBE && e < T_SUBE + T_QUIETO) g.latido = .06 * latido((e - T_SUBE) / T_QUIETO);
+          if(!g.doble && !g.salpico && e > T_SUBE * .94){ g.salpico = true; salpicar(g); }
+          g.titulo.classList.toggle("mojado", e > T_SUBE * .9 && e < T_SUBE + T_QUIETO + 200);
+        }
+      }
+      if(g.fijo != null) k = g.fijo;     // sólo para revisar cuadros sueltos
+      g.fase += dt * 2 * Math.PI * (.36 + .7 * k);
+      // en reposo alcanza con ~30 cuadros por segundo
+      if(g.inicio === null && !g.vivas.length && ahora - g.ultimo < 30) continue;
+      g.ultimo = ahora;
+      dibujar(g, k, dt);
+    }
+    if(alguno) requestAnimationFrame(cuadro); else corriendo = false;
+  }
+
+  const G = grupos.map(crearGrupo);
+  const medirTodo = ()=>G.forEach(medir);
+  medirTodo();
+  document.fonts.ready.then(medirTodo);
+  let pend = false;
+  addEventListener("resize", ()=>{ if(!pend){ pend = true; requestAnimationFrame(()=>{ pend = false; medirTodo(); }); } }, { passive:true });
+
+  const io = new IntersectionObserver(es=>es.forEach(e=>{
+    const g = e.target._ola;
+    g.enPantalla = e.isIntersecting;
+    g.listo = e.intersectionRatio >= .55;
+    if(g.listo && !g.proxima) g.proxima = performance.now() + 2600;   // la primera, apenas se ve el título
+    if(g.enPantalla && !corriendo){ corriendo = true; previo = performance.now(); requestAnimationFrame(cuadro); }
+  }), { threshold:[0, .55, 1] });
+  G.forEach(g=>io.observe(g.el));
+
+  // para revisar: window.__olas.forzar(i) dispara la marejada del grupo i
+  window.__olas = { G, forzar: i=>{ G[i].proxima = 1; G[i].listo = true; } };
+})();
+
+
+/* ============================================================
+   PECECITOS — de vez en cuando cruzan la pantalla; se pinchan al tocarlos
+   ============================================================ */
+const pecera = $("pecera");
+const TONOS = ["#2E7091", "#B9762C", "#EFA33E", "#4E90AE"];
+
+function pinchar(el, capa, alTerminar){
+  el.classList.add("pop");
+  const r = el.getBoundingClientRect(), rc = capa.getBoundingClientRect();
+  const b = document.createElement("span");
+  b.className = "burbuja";
+  b.style.left = (r.left - rc.left + r.width / 2) + "px";
+  b.style.top  = (r.top  - rc.top  + r.height / 2) + "px";
+  capa.appendChild(b);
+  setTimeout(()=>b.remove(), 520);
+  setTimeout(alTerminar, 360);
+}
+
+function soltarPez(){
+  if(document.hidden || pecera.children.length >= 2) return;
+  const ancho = pecera.clientWidth || 400;
+  const tam = 22 + Math.random() * 16;
+  const haciaDer = Math.random() < .5;
+  // en la compu el cruce es más largo: tarda más, así nada a un ritmo parecido al del celular
+  const dur = (16 + Math.random() * 9) * Math.max(1, ancho / 520);
+  const pez = document.createElement("div");
+  pez.className = "pez" + (haciaDer ? " der" : "");
+  pez.style.top = (95 + Math.random() * Math.max(innerHeight - 230, 160)) + "px";
+  pez.style.width = tam + "px";
+  pez.style.animationDuration = dur + "s";
+  pez.style.left = (haciaDer ? -tam - 24 : ancho + 24) + "px";
+  pez.style.setProperty("--recorrido", (haciaDer ? 1 : -1) * (ancho + tam + 70) + "px");
+  const cuerpo = document.createElement("span");
+  cuerpo.className = "pez-cuerpo";
+  cuerpo.style.color = TONOS[Math.floor(Math.random() * TONOS.length)];
+  cuerpo.innerHTML = '<svg viewBox="0 0 46 26"><use href="#pececillo"/></svg>';
+  cuerpo.addEventListener("click", ev=>{
+    ev.stopPropagation();
+    if(!pez.classList.contains("pop")) pinchar(cuerpo, pecera, ()=>pez.remove()), pez.classList.add("pop");
+  });
+  pez.appendChild(cuerpo);
+  pecera.appendChild(pez);
+  requestAnimationFrame(()=>pez.classList.add("visible"));
+  setTimeout(()=>pez.remove(), dur * 1000 + 300);
+}
+if(!reduce){
+  setTimeout(soltarPez, 14000);
+  setInterval(()=>{ if(Math.random() < .22) soltarPez(); }, 9000);
+}
+
+/* el cardumen de la tarjeta final: se pinchan y vuelven a los pocos segundos */
+const cardumen = $("cardumen");
+cardumen.querySelectorAll(".pececito").forEach(p=>{
+  p.addEventListener("click", ()=>{
+    if(p.classList.contains("pop")) return;
+    pinchar(p, cardumen.parentElement, ()=>{
+      p.style.visibility = "hidden";
+      setTimeout(()=>{ p.classList.remove("pop"); p.style.visibility = ""; }, 8000);
+    });
+  });
+});
+
+
+/* ============================================================
+   SCROLL — navbar sólida y barra de confirmación al pasar la portada
+   ============================================================ */
+const nav = $("nav"), barra = $("barra"), portada = document.querySelector(".portada");
+let altoPortada = portada.offsetHeight, pendiente = false;
+addEventListener("resize", ()=>{ altoPortada = portada.offsetHeight; }, { passive:true });
+function alScrollear(){
+  const paso = scrollY > altoPortada - 80;
+  nav.classList.toggle("solida", paso);
+  barra.classList.toggle("visible", paso);
+  pendiente = false;
+}
+addEventListener("scroll", ()=>{ if(!pendiente){ pendiente = true; requestAnimationFrame(alScrollear); } }, { passive:true });
+alScrollear();
+if("IntersectionObserver" in window){
+  new IntersectionObserver(es=>document.body.classList.toggle("al-final", es[0].isIntersecting))
+    .observe(document.querySelector(".tarjeta"));
+}
+
+
+/* ============================================================
+   EL MAR — en la compu la página es una franja de arena y a los dos
+   lados está el mar, visto desde arriba: olas que llegan a la orilla,
+   crestas que rompen en espuma, encaje de espuma que flota y deriva, y
+   el agua que sube y baja sobre el borde de la arena. Un sombreador
+   WebGL lo dibuja en un lienzo fijo detrás de la página (~30 cuadros
+   por segundo); en el celular no se crea nada. Sin WebGL queda el mar
+   quieto del CSS; con movimiento reducido, un cuadro fijo.
+   ============================================================ */
+(function mar(){
+  const lienzo = document.getElementById("mar");
+  if(!lienzo) return;
+  const escritorio = matchMedia("(min-width:1024px)");
+  const pagina = document.getElementById("pieza");
+
+  const VERT = "attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}";
+  const FRAG = `
+precision highp float;
+uniform vec2 u_res;      // tamaño del lienzo, en sus píxeles
+uniform float u_k;       // píxeles del lienzo por píxel CSS
+uniform float u_t;       // segundos
+uniform vec2 u_borde;    // x (CSS) de los bordes izquierdo y derecho de la arena
+uniform float u_scroll;  // desplazamiento vertical de la página (CSS)
+
+float hash(vec2 p){ p = fract(p * vec2(234.34, 435.345)); p += dot(p, p + 34.23); return fract(p.x * p.y); }
+float ruido(vec2 p){
+  vec2 i = floor(p), f = fract(p); vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), u.x), mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+vec2 hash2(vec2 p){ p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3))); return fract(sin(p) * 43758.5453); }
+// red de celdas: 0 sobre el borde entre dos celdas (el encaje de la espuma)
+float red(vec2 p, float t){
+  vec2 i = floor(p), f = fract(p);
+  float d1 = 8.0, d2 = 8.0;
+  for(int yy = -1; yy <= 1; yy++){
+    for(int xx = -1; xx <= 1; xx++){
+      vec2 g = vec2(float(xx), float(yy));
+      vec2 o = 0.5 + 0.42 * sin(t + 6.2831 * hash2(i + g));
+      vec2 r = g + o - f; float dd = dot(r, r);
+      if(dd < d1){ d2 = d1; d1 = dd; } else if(dd < d2){ d2 = dd; }
+    }
+  }
+  return sqrt(d2) - sqrt(d1);
+}
+float fbm2(vec2 p){ return 0.667 * ruido(p) + 0.333 * ruido(p * 2.03 + vec2(3.1, 1.7)); }
+float fbm(vec2 p){
+  float v = 0.0, a = 0.5;
+  for(int i = 0; i < 4; i++){ v += a * ruido(p); p = p * 2.03 + vec2(3.1, 1.7); a *= 0.5; }
+  return v;
+}
+
+void main(){
+  vec2 px = vec2(gl_FragCoord.x, u_res.y - gl_FragCoord.y) / u_k;     // px CSS, y hacia abajo
+  if(px.x > u_borde.x && px.x < u_borde.y){ gl_FragColor = vec4(0.0); return; }   // debajo de la arena
+  float lado = px.x <= u_borde.x ? -1.0 : 1.0;
+  float d = lado < 0.0 ? u_borde.x - px.x : px.x - u_borde.y;        // distancia a la orilla
+  float y = px.y + u_scroll * 0.3 + (lado > 0.0 ? 731.0 : 0.0);       // cada lado con su propio mar
+  float ancho = lado < 0.0 ? u_borde.x : u_res.x / u_k - u_borde.y;   // ancho de esta franja de mar
+  float dn = d / max(ancho, 1.0);                                     // 0 en la orilla, 1 en el borde de la pantalla
+  float t = u_t;
+
+  // oleaje: crestas casi paralelas a la orilla, onduladas, que llegan despacio.
+  // fr = 0 en la cresta; la cara de adelante (del lado de la orilla) es corta y empinada
+  float w = (fbm2(vec2(y * 0.0024, t * 0.035 + lado * 2.3)) - 0.5) * 110.0;
+  float fase = (d + w) * 0.055 + t * 1.2;              // λ ≈ 114 px, ~22 px/s
+  float fr = fract(fase / 6.2831853);
+  float atras = fr * 114.0;                            // px detrás de la cresta
+  float perfil = max(exp(-atras / 36.0), smoothstep(0.84, 1.0, fr));
+  float grano = fbm(vec2(d * 0.018 + t * 0.12, y * 0.018 - t * 0.05));
+  float cruce = sin((d * 0.6 - y * 0.42 + w * 0.5) * 0.065 + t * 1.25);
+  float h = 0.55 * perfil + 0.16 * cruce + 0.5 * (grano - 0.5);
+
+  // color: turquesa en la orilla, azul mar más adentro, hondo lejos
+  vec3 turquesa = vec3(0.40, 0.72, 0.76);
+  vec3 azul = vec3(0.17, 0.43, 0.56);
+  vec3 hondo = vec3(0.07, 0.22, 0.30);
+  vec3 col = mix(turquesa, azul, smoothstep(0.0, 0.5, dn));
+  col = mix(col, hondo, smoothstep(0.5, 1.1, dn) * 0.75);
+  col *= 0.87 + 0.19 * h;
+  col += vec3(0.02, 0.035, 0.04) * (fbm2(px * 0.045 + vec2(t * 0.3, -t * 0.2)) - 0.5);  // rizos finos
+
+  float cerca = 1.0 - smoothstep(0.06, 0.55, dn);     // 1 en la orilla, 0 mar adentro
+
+  // encaje de espuma: una red de celdas que se deforma despacio
+  // (la red se tuerce con ruido, el grosor varía y tiene huecos: así no parece un mosaico)
+  vec2 q = vec2(d * 0.9 - t * 4.0, y) / 16.0;
+  q += (vec2(fbm(q * 0.35 + vec2(0.0, t * 0.05)), fbm(q * 0.35 + vec2(7.3, -t * 0.04))) - 0.5) * 1.8;
+  float r = red(q, t * 0.5);
+  float grosor = 0.05 + 0.1 * fbm2(q * 0.45 + 3.0);
+  float encajeR = (1.0 - smoothstep(grosor * 0.35, grosor, r)) * smoothstep(0.28, 0.52, fbm2(q * 0.7 + vec2(t * 0.08, 1.0)));
+
+  // la rompiente: línea blanca en la cresta y estela de encaje detrás.
+  // Lejos sólo insinúa la cresta; cerca de la orilla rompe entera
+  float corte = smoothstep(0.36, 0.62, fbm2(vec2(y * 0.017, fase * 0.33 + lado)));
+  float linea = exp(-atras / 2.8) * corte * (0.25 + 0.75 * cerca);
+  float estela = (exp(-atras / 40.0) * encajeR + exp(-atras / 16.0) * 0.4) * cerca * cerca * (0.4 + 0.6 * corte);
+
+  // espuma que queda flotando en manchas después de romper
+  float mancha = smoothstep(0.55, 0.72, fbm2(vec2(d * 0.008 - t * 0.01, y * 0.0065 + 2.0)));
+  float flota = encajeR * mancha * cerca * 0.65;
+
+  // la orilla: el agua sube y baja sobre la arena con un frente de espuma de encaje
+  float e = 14.0 + 14.0 * (0.5 + 0.5 * sin(t * 0.75 + y * 0.0032 + lado)) + 14.0 * (fbm2(vec2(y * 0.011, t * 0.18)) - 0.5);
+  float banda = 1.0 - smoothstep(e - 14.0, e + 1.0, d);
+  float encaje = max(smoothstep(0.34, 0.6, fbm(vec2(d * 0.1 + t * 0.15, y * 0.05))), encajeR);
+  float frente = exp(-(d - e) * (d - e) / 4.0) * smoothstep(0.25, 0.5, fbm2(vec2(y * 0.03, t * 0.3)));
+  float espumaO = clamp(banda * (0.3 + 0.7 * encaje) + frente, 0.0, 1.0);
+
+  vec3 espuma = vec3(0.95, 0.98, 0.97);
+  float f = clamp(linea * 0.95 + estela * 0.8 + flota + espumaO, 0.0, 1.0);
+  col = mix(col, espuma, f);
+
+  gl_FragColor = vec4(col, 1.0);
+}`;
+
+  let gl = null, u = {}, raf = 0, t0 = performance.now();
+  function iniciar(){
+    gl = lienzo.getContext("webgl", { alpha:true, antialias:false, depth:false, stencil:false, premultipliedAlpha:true, powerPreference:"low-power" });
+    if(!gl) return false;
+    const sh = (tipo, src)=>{ const s = gl.createShader(tipo); gl.shaderSource(s, src); gl.compileShader(s);
+      if(!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+    try{
+      const pr = gl.createProgram();
+      gl.attachShader(pr, sh(gl.VERTEX_SHADER, VERT)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FRAG));
+      gl.linkProgram(pr);
+      if(!gl.getProgramParameter(pr, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(pr));
+      gl.useProgram(pr);
+      const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+      const a = gl.getAttribLocation(pr, "a"); gl.enableVertexAttribArray(a); gl.vertexAttribPointer(a, 2, gl.FLOAT, false, 0, 0);
+      ["u_res","u_k","u_t","u_borde","u_scroll"].forEach(n=>u[n] = gl.getUniformLocation(pr, n));
+    }catch(err){ console.warn("mar:", err.message); gl = null; return false; }
+    lienzo.addEventListener("webglcontextlost", e=>{ e.preventDefault(); cancelAnimationFrame(raf); raf = 0; });
+    lienzo.addEventListener("webglcontextrestored", ()=>{ gl = null; encender(); });
+    return true;
+  }
+  let k = 1;
+  function medir(){
+    if(!gl) return;
+    k = (window.devicePixelRatio || 1) >= 1.5 ? 1 : .8;     // el agua es suave: no hace falta más
+    const w = Math.round(innerWidth * k), h = Math.round(innerHeight * k);
+    if(lienzo.width !== w || lienzo.height !== h){ lienzo.width = w; lienzo.height = h; }
+    gl.viewport(0, 0, w, h);
+  }
+  function dibujar(seg){
+    const r = pagina.getBoundingClientRect();
+    gl.uniform2f(u.u_res, lienzo.width, lienzo.height);
+    gl.uniform1f(u.u_k, k);
+    gl.uniform1f(u.u_t, seg);
+    gl.uniform2f(u.u_borde, r.left, r.right);
+    gl.uniform1f(u.u_scroll, scrollY);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+  let previo = 0;
+  function cuadro(ahora){
+    raf = requestAnimationFrame(cuadro);
+    if(ahora - previo < 31) return;                     // ~30 cuadros por segundo alcanzan para el agua
+    previo = ahora;
+    dibujar((ahora - t0) / 1000);
+  }
+  function encender(){
+    if(!escritorio.matches){ cancelAnimationFrame(raf); raf = 0; return; }
+    if(!gl && !iniciar()) return;                     // sin WebGL queda el mar quieto del CSS
+    medir();
+    lienzo.classList.add("vivo");
+    if(reduce){ dibujar(8); return; }                   // movimiento reducido: el mar quieto
+    if(!raf) raf = requestAnimationFrame(cuadro);
+  }
+  escritorio.addEventListener("change", encender);
+  addEventListener("resize", ()=>{ if(gl && escritorio.matches){ medir(); if(reduce) dibujar(8); } }, { passive:true });
+  if(reduce) addEventListener("scroll", ()=>{ if(gl && escritorio.matches) dibujar(8); }, { passive:true });
+  encender();
+  window.__mar = { dibujar: s=>gl && dibujar(s), parar: ()=>{ cancelAnimationFrame(raf); raf = 0; } };
+})();
+</script>
+</body>
+</html>
